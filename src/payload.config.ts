@@ -5,9 +5,14 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { en } from '@payloadcms/translations/languages/en'
+import { pt } from '@payloadcms/translations/languages/pt'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Art } from './collections/Art'
+import { Nav } from './collections/Nav'
+import { Page } from './collections/Page'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -19,7 +24,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  collections: [Nav, Art, Media, Page, Users],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -30,6 +35,17 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
+  i18n: {
+    fallbackLanguage: 'pt', // default
+    supportedLanguages: { en, pt },
+    translations: {
+      pt: {
+        general: {
+          navs: 'Menu',
+        },
+      },
+    },
+  },
   sharp,
   plugins: [
     // storage-adapter-placeholder

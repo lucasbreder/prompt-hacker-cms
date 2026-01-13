@@ -15,8 +15,11 @@ export const Media: CollectionConfig = {
   },
   hooks: {
     afterRead: [
-      ({ doc }) => {
-        doc.url = `${process.env.PAYLOAD_URL}${doc.url}`
+      ({ doc, req }) => {
+        const protocol = req.protocol || 'http'
+        const host = req.host || req.headers.get('host') // O host (ex: localhost:3000)
+        const serverURL = `${protocol}//${host}`
+        doc.url = `${serverURL}${doc.url}`
         return doc
       },
     ],

@@ -16,12 +16,10 @@ export const Media: CollectionConfig = {
   hooks: {
     afterRead: [
       ({ doc, req }) => {
-        const serverURL = req.payload?.config?.serverURL
-
-        if (doc.url && !doc.url.startsWith('http')) {
-          doc.url = `${serverURL}${doc.url}`
-        }
-
+        const protocol = req.protocol || 'http'
+        const host = req.host || req.headers.get('host') // O host (ex: localhost:3000)
+        const serverURL = `${protocol}//${host}`
+        doc.url = `${serverURL}${doc.url}`
         return doc
       },
     ],

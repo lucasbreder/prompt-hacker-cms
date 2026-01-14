@@ -28,6 +28,7 @@ export const Art: CollectionConfig = {
     {
       name: 'excerpt',
       type: 'text',
+      required: false,
     },
     {
       name: 'description',

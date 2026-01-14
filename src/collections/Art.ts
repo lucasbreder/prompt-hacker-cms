@@ -26,7 +26,16 @@ export const Art: CollectionConfig = {
       required: true,
     },
     {
+      name: 'excerpt',
+      type: 'text',
+    },
+    {
       name: 'description',
+      type: 'richText',
+      required: false,
+    },
+    {
+      name: 'team',
       type: 'textarea',
       required: false,
     },

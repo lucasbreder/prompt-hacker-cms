@@ -24,6 +24,8 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
+  cors: ['http://localhost:3000', 'https://prompthacker.sudu.dev'],
+  csrf: ['http://localhost:3000', 'https://prompthacker.sudu.dev'],
   collections: [Nav, Art, Media, Page, Users],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

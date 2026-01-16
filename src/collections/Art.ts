@@ -31,6 +31,11 @@ export const Art: CollectionConfig = {
       required: false,
     },
     {
+      name: 'author',
+      type: 'text',
+      required: false,
+    },
+    {
       name: 'description',
       type: 'richText',
       required: false,

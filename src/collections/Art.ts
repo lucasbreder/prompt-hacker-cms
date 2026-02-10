@@ -78,11 +78,14 @@ export const Art: CollectionConfig = {
       name: 'platform',
       relationTo: 'platforms',
       type: 'relationship',
+      hasMany: true,
     },
       {
       name: 'axis',
       relationTo: 'axis',
       type: 'relationship',
+      
+      hasMany: true,
     }
     
   ],

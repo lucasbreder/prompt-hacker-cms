@@ -2,6 +2,9 @@ import type { CollectionConfig } from 'payload'
 
 export const Axis: CollectionConfig = {
   slug: 'axis',
+  admin: {
+    useAsTitle: 'title',
+  },
   access: {
     read: () => true,
   },

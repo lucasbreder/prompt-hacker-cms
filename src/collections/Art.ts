@@ -30,6 +30,11 @@ export const Art: CollectionConfig = {
       type: 'text',
       required: false,
     },
+      {
+      name: 'year',
+      type: 'text',
+      required: false,
+    },
     {
       name: 'author',
       type: 'text',
@@ -69,6 +74,16 @@ export const Art: CollectionConfig = {
         position: 'sidebar',
       }
     },
+    {
+      name: 'platform',
+      relationTo: 'platforms',
+      type: 'relationship',
+    },
+      {
+      name: 'axis',
+      relationTo: 'axis',
+      type: 'relationship',
+    }
     
   ],
 }

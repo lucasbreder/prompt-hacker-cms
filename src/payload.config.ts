@@ -13,6 +13,8 @@ import { Media } from './collections/Media'
 import { Art } from './collections/Art'
 import { Nav } from './collections/Nav'
 import { Page } from './collections/Page'
+import { Platforms } from './collections/Platforms'
+import { Axis } from './collections/Axis'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -34,7 +36,7 @@ export default buildConfig({
     'https://prompthacker.sudu.dev',
     'https://cms.prompthacker.sudu.dev',
   ],
-  collections: [Nav, Art, Media, Page, Users],
+  collections: [Nav, Art, Media, Page, Users, Platforms, Axis],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

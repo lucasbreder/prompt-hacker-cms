@@ -24,11 +24,11 @@ export const Nav: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    {
-      name: 'type',
-      type: 'select',
-      required: true,
-      options: ['principal', 'detalhe'],
-    },
+    // {
+    //   name: 'type',
+    //   type: 'select',
+    //   required: true,
+    //   options: ['principal', 'detalhe'],
+    // },
   ],
 }

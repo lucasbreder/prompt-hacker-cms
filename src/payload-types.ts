@@ -72,6 +72,8 @@ export interface Config {
     media: Media;
     page: Page;
     users: User;
+    platforms: Platform;
+    axis: Axis;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +86,8 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     page: PageSelect<false> | PageSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    platforms: PlatformsSelect<false> | PlatformsSelect<true>;
+    axis: AxisSelect<false> | AxisSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -129,7 +133,6 @@ export interface Nav {
   id: number;
   label: string;
   url: string;
-  type: 'principal' | 'detalhe';
   updatedAt: string;
   createdAt: string;
 }
@@ -142,6 +145,7 @@ export interface Art {
   title: string;
   slug: string;
   excerpt?: string | null;
+  year?: string | null;
   author?: string | null;
   author_note?: string | null;
   description?: {
@@ -162,6 +166,8 @@ export interface Art {
   team?: string | null;
   art: number | Media;
   art_process?: (number | Media)[] | null;
+  platform?: (number | null) | Platform;
+  axis?: (number | null) | Axis;
   updatedAt: string;
   createdAt: string;
 }
@@ -184,6 +190,26 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "platforms".
+ */
+export interface Platform {
+  id: number;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "axis".
+ */
+export interface Axis {
+  id: number;
+  title: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -280,6 +306,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'users';
         value: number | User;
+      } | null)
+    | ({
+        relationTo: 'platforms';
+        value: number | Platform;
+      } | null)
+    | ({
+        relationTo: 'axis';
+        value: number | Axis;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -330,7 +364,6 @@ export interface PayloadMigration {
 export interface NavSelect<T extends boolean = true> {
   label?: T;
   url?: T;
-  type?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -342,12 +375,15 @@ export interface ArtSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   excerpt?: T;
+  year?: T;
   author?: T;
   author_note?: T;
   description?: T;
   team?: T;
   art?: T;
   art_process?: T;
+  platform?: T;
+  axis?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -404,6 +440,24 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "platforms_select".
+ */
+export interface PlatformsSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "axis_select".
+ */
+export interface AxisSelect<T extends boolean = true> {
+  title?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

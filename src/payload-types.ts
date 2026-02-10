@@ -166,8 +166,8 @@ export interface Art {
   team?: string | null;
   art: number | Media;
   art_process?: (number | Media)[] | null;
-  platform?: (number | null) | Platform;
-  axis?: (number | null) | Axis;
+  platform?: (number | Platform)[] | null;
+  axis?: (number | Axis)[] | null;
   updatedAt: string;
   createdAt: string;
 }

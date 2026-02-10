@@ -35,6 +35,11 @@ export const Art: CollectionConfig = {
       type: 'text',
       required: false,
     },
+     {
+      name: 'author_note',
+      type: 'textarea',
+      required: false,
+    },
     {
       name: 'description',
       type: 'richText',
@@ -50,6 +55,20 @@ export const Art: CollectionConfig = {
       type: 'upload',
       required: true,
       relationTo: 'media',
+      admin: {
+        position: 'sidebar',
+      }
     },
+    {
+      name: 'art_process',
+      type: 'upload',
+      required: false,
+      relationTo: 'media',
+      hasMany: true,
+      admin: {
+        position: 'sidebar',
+      }
+    },
+    
   ],
 }

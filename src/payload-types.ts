@@ -141,8 +141,27 @@ export interface Art {
   id: number;
   title: string;
   slug: string;
-  description?: string | null;
+  excerpt?: string | null;
+  author?: string | null;
+  author_note?: string | null;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  team?: string | null;
   art: number | Media;
+  art_process?: (number | Media)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -322,8 +341,13 @@ export interface NavSelect<T extends boolean = true> {
 export interface ArtSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  excerpt?: T;
+  author?: T;
+  author_note?: T;
   description?: T;
+  team?: T;
   art?: T;
+  art_process?: T;
   updatedAt?: T;
   createdAt?: T;
 }

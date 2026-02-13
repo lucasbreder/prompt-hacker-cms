@@ -96,12 +96,11 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
+  fallbackLocale: null;
   globals: {};
   globalsSelect: {};
   locale: null;
-  user: User & {
-    collection: 'users';
-  };
+  user: User;
   jobs: {
     tasks: unknown;
     workflows: unknown;
@@ -163,8 +162,8 @@ export interface Art {
     };
     [k: string]: unknown;
   } | null;
-  team?: string | null;
   art: number | Media;
+  art_video?: (number | null) | Media;
   art_process?: (number | Media)[] | null;
   platform?: (number | Platform)[] | null;
   axis?: (number | Axis)[] | null;
@@ -262,6 +261,7 @@ export interface User {
       }[]
     | null;
   password?: string | null;
+  collection: 'users';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -379,8 +379,8 @@ export interface ArtSelect<T extends boolean = true> {
   author?: T;
   author_note?: T;
   description?: T;
-  team?: T;
   art?: T;
+  art_video?: T;
   art_process?: T;
   platform?: T;
   axis?: T;

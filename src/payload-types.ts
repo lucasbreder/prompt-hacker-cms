@@ -177,7 +177,7 @@ export interface Art {
  */
 export interface Media {
   id: number;
-  alt: string;
+  alt?: string | null;
   caption?: string | null;
   updatedAt: string;
   createdAt: string;

@@ -116,7 +116,7 @@ export const Art: CollectionConfig = {
           value: 'vertical',
         },
         {
-          label: 'Carrosel',
+          label: 'Carrossel',
           value: 'carousel',
         },
       ],

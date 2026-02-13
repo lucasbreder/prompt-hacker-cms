@@ -164,6 +164,7 @@ export interface Art {
   } | null;
   art: number | Media;
   art_video?: (number | null) | Media;
+  process_layout?: ('grid' | 'vertical' | 'carousel') | null;
   art_process?: (number | Media)[] | null;
   platform?: (number | Platform)[] | null;
   axis?: (number | Axis)[] | null;
@@ -381,6 +382,7 @@ export interface ArtSelect<T extends boolean = true> {
   description?: T;
   art?: T;
   art_video?: T;
+  process_layout?: T;
   art_process?: T;
   platform?: T;
   axis?: T;

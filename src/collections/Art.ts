@@ -96,6 +96,32 @@ export const Art: CollectionConfig = {
       },
     },
     {
+      name: 'process_layout',
+      type: 'select',
+      required: false,
+      defaultValue: 'grid',
+      admin: {
+        position: 'sidebar',
+      },
+      label: {
+        pt: 'Layout do Processo',
+      },
+      options: [
+        {
+          label: 'Grid',
+          value: 'grid',
+        },
+        {
+          label: 'Vertical',
+          value: 'vertical',
+        },
+        {
+          label: 'Carrosel',
+          value: 'carousel',
+        },
+      ],
+    },
+    {
       name: 'art_process',
       type: 'upload',
       required: false,

@@ -29,12 +29,12 @@ export default buildConfig({
   cors: [
     'http://localhost:3000',
     'https://prompthacker.sudu.dev',
-    'https://cms.prompthacker.sudu.dev',
+    'https://cms-prompthacker.sudu.dev',
   ],
   csrf: [
     'http://localhost:3000',
     'https://prompthacker.sudu.dev',
-    'https://cms.prompthacker.sudu.dev',
+    'https://cms-prompthacker.sudu.dev',
   ],
   collections: [Nav, Art, Media, Page, Users, Platforms, Axis],
   editor: lexicalEditor(),

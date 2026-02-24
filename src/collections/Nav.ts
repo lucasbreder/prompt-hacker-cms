@@ -47,12 +47,6 @@ export const Nav: CollectionConfig = {
       name: 'link_url',
       type: 'text',
       required: false,
-      validate: (value: any, { siblingData }: { siblingData: any }) => {
-        if (!value && !siblingData?.url) {
-          return 'Você deve preencher a Página ou o Link Externo'
-        }
-        return true
-      },
       label: {
         pt: 'Link Externo',
       },

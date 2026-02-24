@@ -25,11 +25,16 @@ export const Media: CollectionConfig = {
     {
       name: 'alt',
       type: 'text',
+      label: {
+        pt: 'Texto alternativo',
+      },
     },
     {
       name: 'caption',
       type: 'text',
-      label: 'Legenda',
+      label: {
+        pt: 'Legenda',
+      },
     },
   ],
   upload: true,

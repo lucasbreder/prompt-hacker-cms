@@ -21,6 +21,9 @@ export const Axis: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      label: {
+        pt: 'Título',
+      },
     },
   ],
 }

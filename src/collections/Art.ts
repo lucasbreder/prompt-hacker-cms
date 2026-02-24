@@ -30,6 +30,22 @@ export const Art: CollectionConfig = {
       label: {
         pt: 'Slug',
       },
+      admin: {
+        description: 'URL amigável para a obra, deixe em branco para gerar automaticamente',
+      },
+      hooks: {
+        beforeChange: [
+          ({ data }) => {
+            if (!data?.slug && data?.title) {
+              data.slug = data.title
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase()
+                .replace(/\s/g, '-')
+            }
+          },
+        ],
+      },
     },
     {
       name: 'excerpt',

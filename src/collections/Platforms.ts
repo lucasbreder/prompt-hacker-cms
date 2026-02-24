@@ -21,6 +21,9 @@ export const Platforms: CollectionConfig = {
       name: 'name',
       type: 'text',
       required: true,
+      label: {
+        pt: 'Nome',
+      },
     },
   ],
 }

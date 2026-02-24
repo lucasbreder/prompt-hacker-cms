@@ -18,11 +18,24 @@ export const Nav: CollectionConfig = {
       name: 'label',
       type: 'text',
       required: true,
+      label: {
+        pt: 'Nome',
+      },
+      admin: {
+        description: 'Nome do item do menu',
+      },
     },
     {
       name: 'url',
-      type: 'text',
+      type: 'relationship',
       required: true,
+      relationTo: 'page',
+      label: {
+        pt: 'Página',
+      },
+      admin: {
+        description: 'Página para onde o menu aponta',
+      },
     },
     // {
     //   name: 'type',

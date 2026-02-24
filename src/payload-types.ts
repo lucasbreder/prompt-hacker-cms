@@ -130,10 +130,67 @@ export interface UserAuthOperations {
  */
 export interface Nav {
   id: number;
+  /**
+   * Nome do item do menu
+   */
   label: string;
-  url: string;
+  /**
+   * Página para onde o menu aponta
+   */
+  url: number | Page;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "page".
+ */
+export interface Page {
+  id: number;
+  title: string;
+  /**
+   * URL amigável para a página, deixe em branco para gerar automaticamente
+   */
+  slug: string;
+  excerpt?: string | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  thumbnail?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt?: string | null;
+  caption?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -142,6 +199,9 @@ export interface Nav {
 export interface Art {
   id: number;
   title: string;
+  /**
+   * URL amigável para a obra, deixe em branco para gerar automaticamente
+   */
   slug: string;
   excerpt?: string | null;
   year?: string | null;
@@ -173,26 +233,6 @@ export interface Art {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: number;
-  alt?: string | null;
-  caption?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "platforms".
  */
 export interface Platform {
@@ -208,34 +248,6 @@ export interface Platform {
 export interface Axis {
   id: number;
   title: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "page".
- */
-export interface Page {
-  id: number;
-  title: string;
-  slug: string;
-  excerpt?: string | null;
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  thumbnail?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
 }

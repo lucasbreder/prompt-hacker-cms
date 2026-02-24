@@ -26,10 +26,16 @@ export const Nav: CollectionConfig = {
       },
     },
     {
-      name: 'url',
+      name: 'page',
       type: 'relationship',
-      required: true,
+      required: false,
       relationTo: 'page',
+      validate: (value: any, { siblingData }: { siblingData: any }) => {
+        if (!value && !siblingData?.link_url) {
+          return 'Você deve preencher a Página ou o Link Externo'
+        }
+        return true
+      },
       label: {
         pt: 'Página',
       },
@@ -37,11 +43,23 @@ export const Nav: CollectionConfig = {
         description: 'Página para onde o menu aponta',
       },
     },
-    // {
-    //   name: 'type',
-    //   type: 'select',
-    //   required: true,
-    //   options: ['principal', 'detalhe'],
-    // },
+    {
+      name: 'link_url',
+      type: 'text',
+      required: false,
+      validate: (value: any, { siblingData }: { siblingData: any }) => {
+        if (!value && !siblingData?.url) {
+          return 'Você deve preencher a Página ou o Link Externo'
+        }
+        return true
+      },
+      label: {
+        pt: 'Link Externo',
+      },
+      admin: {
+        description:
+          'Link externo para onde o menu aponta, caso não seja preenchido, será usado o link da página',
+      },
+    },
   ],
 }

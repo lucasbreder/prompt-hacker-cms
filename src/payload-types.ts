@@ -137,7 +137,11 @@ export interface Nav {
   /**
    * Página para onde o menu aponta
    */
-  url: number | Page;
+  page?: (number | null) | Page;
+  /**
+   * Link externo para onde o menu aponta, caso não seja preenchido, será usado o link da página
+   */
+  link_url?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -376,7 +380,8 @@ export interface PayloadMigration {
  */
 export interface NavSelect<T extends boolean = true> {
   label?: T;
-  url?: T;
+  page?: T;
+  link_url?: T;
   updatedAt?: T;
   createdAt?: T;
 }

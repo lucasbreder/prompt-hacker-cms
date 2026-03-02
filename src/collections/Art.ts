@@ -42,6 +42,16 @@ export const Art: CollectionConfig = {
                 .replace(/[\u0300-\u036f]/g, '')
                 .toLowerCase()
                 .replace(/\s/g, '-')
+                .trim()
+            } else {
+              if (data?.slug) {
+                data.slug = data.slug
+                  .trim()
+                  .normalize('NFD')
+                  .replace(/[\u0300-\u036f]/g, '')
+                  .toLowerCase()
+                  .replace(/\s/g, '-')
+              }
             }
           },
         ],

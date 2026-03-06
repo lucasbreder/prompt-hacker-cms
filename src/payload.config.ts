@@ -28,14 +28,14 @@ export default buildConfig({
   },
   cors: [
     'http://localhost:3000',
-    'https://prompterhacker.io/',
+    'https://prompterhacker.io',
     'https://prompthacker.sudu.dev',
     'https://cms-prompthacker.sudu.dev',
     'https://cms.prompterhacker.io',
   ],
   csrf: [
     'http://localhost:3000',
-    'https://prompterhacker.io/',
+    'https://prompterhacker.io',
     'https://prompthacker.sudu.dev',
     'https://cms.prompterhacker.io',
   ],
